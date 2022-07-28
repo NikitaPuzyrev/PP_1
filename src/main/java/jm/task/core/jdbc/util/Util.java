@@ -1,6 +1,14 @@
 package jm.task.core.jdbc.util;
 
+import com.mysql.cj.xdevapi.SessionFactory;
+import jdk.jfr.Configuration;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Environment;
+
+import javax.imageio.spi.ServiceRegistry;
+import java.net.spi.InetAddressResolverProvider;
 import java.sql.*;
+import java.util.Properties;
 
 public class Util {
     private static final String USERNAME = "Nikita";
@@ -20,7 +28,11 @@ public class Util {
             System.out.println("getConnect error");
             return null;
         }
+
     }
+}
+
+
  /*   void connectClose(Connection connection) {
         try {
             connection.close();
@@ -30,4 +42,8 @@ public class Util {
             System.out.println("connectClose error");
         }
     }*/
-}
+
+//        SessionFactory sessionFactory = new Configuration().builtinSessionFactory();
+//
+//
+//        sessionFactory.close();

@@ -5,16 +5,21 @@ import java.sql.*;
 
 import com.mysql.cj.jdbc.StatementImpl;
 import jm.task.core.jdbc.dao.UserDao;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.HibernateUtil;
 import jm.task.core.jdbc.util.Util;
+import org.hibernate.Session;
 
 
 public class Main {
-    private static Connection connection;
+
 
     public static void main(String[] args) throws SQLException {
 
         UserDao userDao = new UserDaoJDBCImpl();
+
 
         userDao.createUsersTable();
         userDao.saveUser(" Un1 ", "Ul1 ", (byte) 20);
@@ -25,6 +30,9 @@ public class Main {
         userDao.getAllUsers();
         userDao.cleanUsersTable();
         userDao.dropUsersTable();
+
+
+
     }
 }
 
