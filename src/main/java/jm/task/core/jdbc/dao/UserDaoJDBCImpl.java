@@ -25,8 +25,6 @@ public class UserDaoJDBCImpl implements UserDao {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sqlCommand);
             connection.commit();
-            statement.close();
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Create UsersTable error");
             if (connection != null) {
@@ -47,8 +45,6 @@ public class UserDaoJDBCImpl implements UserDao {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sqlCommand);
             connection.commit();
-            statement.close();
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Drop UsersTable error");
             if (connection != null) {
@@ -78,9 +74,7 @@ public class UserDaoJDBCImpl implements UserDao {
             ps.executeUpdate();
             System.out.printf("User with name %s added to database." + "\n", name);
             connection.commit();
-            statement.close();
-            ps.close();
-            connection.close();
+
         } catch (SQLException e) {
             System.out.println("SaveUser error");
             if (connection != null) {
@@ -102,8 +96,7 @@ public class UserDaoJDBCImpl implements UserDao {
             ps.setLong(1, id);
             ps.executeUpdate();
             connection.commit();
-            ps.close();
-            connection.close();
+
         } catch (SQLException e) {
             System.out.println("DelateUser error");
             if (connection != null) {
@@ -128,7 +121,6 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.println(user);
             list.add(user);
         }
-        statement.close();
         connection.close();
         return list;
     }
@@ -142,8 +134,7 @@ public class UserDaoJDBCImpl implements UserDao {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sqlCommand);
             connection.commit();
-            statement.close();
-            connection.close();
+
         } catch (SQLException e) {
             System.out.println("Clean UsersTable error");
             if (connection != null) {
